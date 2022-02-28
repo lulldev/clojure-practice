@@ -1,0 +1,15 @@
+/*/target
+/*/classes
+/*/pom.xml
+/*/pom.xml.asc
+/*/*.jar
+/*/*.class
+/*/.lein-*
+/*/.nrepl-port
+/*/.lein-repl-history
+
+/.clj-kondo/.cache
+/.lsp
+/.calva
+
+profiles.clj
