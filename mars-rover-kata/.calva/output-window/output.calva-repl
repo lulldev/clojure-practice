@@ -1,0 +1,386 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.9.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.27.4"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +uberjar repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS: 
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉mars-rover-kata-2.core꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉mars-rover-kata-2.core꞉> 
+#'mars-rover-kata-2.core/-main
+clj꞉mars-rover-kata-2.core꞉> 
+#'mars-rover-kata-2.core/-main
+clj꞉mars-rover-kata-2.core꞉> 
+; Syntax error reading source at (REPL:7:28).
+; Unmatched delimiter: )
+clj꞉mars-rover-kata-2.core꞉> 
+hello
+nil
+clj꞉mars-rover-kata-2.core꞉> 
+; Syntax error compiling at (src/mars_rover_kata_2/core.clj:9:1).
+; Unable to resolve symbol: prinln in this context
+clj꞉user꞉> 
+hello
+nil
+clj꞉user꞉> 
+; Syntax error compiling at (src/mars_rover_kata_2/core.clj:12:1).
+; Unable to resolve symbol: rover in this context
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7762 (form-init12540848072626899781.clj:12).
+; Wrong number of args (0) passed to: clojure.lang.PersistentArrayMap
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "North"}
+clj꞉user꞉> 
+{:width 5, :height 5}
+clj꞉user꞉> 
+; Syntax error compiling at (src/mars_rover_kata_2/core.clj:1:8004).
+; Unable to resolve symbol: rover-atom in this context
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "North"}
+clj꞉user꞉> 
+#<Atom@490afd32: 
+  {:position {:x 0, :y 0},
+   :orientation "North"}>
+clj꞉user꞉> (type "Hello World")
+java.lang.String
+clj꞉user꞉> :h
+:h
+clj꞉user꞉> (type :h)
+clojure.lang.Keyword
+clj꞉user꞉> (= "1" "1")
+true
+clj꞉user꞉> (= "1" "1 ")
+false
+clj꞉user꞉> 
+#'user/rover-turn-right
+clj꞉user꞉> 
+"North"
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0},
+ :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+; Syntax error compiling at (src/mars_rover_kata_2/core.clj:29:1).
+; Unable to resolve symbol: rover-turn-left in this context
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x 0, :y 0}, :orientation "North"}
+clj꞉user꞉> (update-in {:a {:b 3}} [:a :b] inc)
+{:a {:b 4}}
+(update-in {:a {:b 3}} [:a :b] inc)
+clj꞉user꞉> (update-in {:a {:b 3}} [:a :b] inc)
+; Execution error (ArityException) at user/rover-move-forward (form-init12540848072626899781.clj:33).
+; Wrong number of args (1) passed to: clojure.core/update-in
+clj꞉user꞉> 
+; Execution error (ArityException) at user/rover-move-forward (form-init12540848072626899781.clj:35).
+; Wrong number of args (2) passed to: clojure.core/update-in
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 1, :y 0}, :orientation "North"}
+clj꞉user꞉> (inc 1)
+2
+clj꞉user꞉> (inc)
+{:position {:x 2, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 3, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 4, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 5, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 6, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 2}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 0, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -1, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -2, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -3, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -4, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -5, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -6, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -7, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -8, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -9, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -10, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -11, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -12, :y 2}, :orientation "West"}
+clj꞉user꞉> 
+{:position {:x -12, :y 2}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y 1}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y 0}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -1}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -2}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -3}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -4}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -5}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -6}, :orientation "South"}
+clj꞉user꞉> 
+{:position {:x -12, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -11, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -10, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -9, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -8, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -7, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -6, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -5, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -4, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -3, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -2, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x -1, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 0, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 1, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 2, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 3, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 4, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 5, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 6, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 7, :y -6}, :orientation "Est"}
+clj꞉user꞉> 
+{:position {:x 7, :y -6}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y -5}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y -4}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y -3}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y -2}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y -1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 0}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 1}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 2}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 3}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 4}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 5}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 6}, :orientation "North"}
+clj꞉user꞉> 
+{:position {:x 7, :y 7}, :orientation "North"}
+clj꞉user꞉> 
