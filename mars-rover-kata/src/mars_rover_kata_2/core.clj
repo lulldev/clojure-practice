@@ -20,6 +20,9 @@
 (defn move-backward [rover]
   (-> rover turn-opposite move-forward))
 
+(defn meet-obstacle [rover]
+  (update-in rover [:is-meet-obstacle] (fn [_] true)))
+
 (def commands
   {:move-forward move-forward
    :move-backward move-backward
@@ -29,7 +32,8 @@
 
 (def initial-rover
   {:position {:x 0 :y 0}
-   :orientation :north})
+   :orientation :north
+   :is-meet-obstacle false})
 
 (def obstacles [{:x 2 :y 2} {:x 3 :y 3}])
 
@@ -49,9 +53,10 @@
 (defn move [rover command planet obstacles]
   (let [cmd-fn (commands command)
         next-rover-move (cmd-fn rover)]
-    (if (and (rover-can-move? next-rover-move planet) (not (rover-hit-obstacle? next-rover-move obstacles)))
-      next-rover-move
-      rover)))
+    (cond
+      (rover-hit-obstacle? next-rover-move obstacles) (meet-obstacle rover)
+      (rover-can-move? next-rover-move planet) next-rover-move
+      :else rover)))
 
 
 ;; Non pure part of the app.
@@ -61,5 +66,24 @@
 (defn move! [command planet obstacles]
   (swap! a-rover move command planet obstacles))
 
-(move! :turn-right planet obstacles)
-(move! :move-forward planet obstacles)
+(def travel-route [:move-forward
+                   :move-forward
+                   :move-forward
+                   :turn-right
+                   :move-forward
+                   :move-forward
+                   :move-forward
+                   :move-backward])
+
+(defn rover-travel! [travel-route planet obstacles]
+  (loop [i 0]
+  (when (< i (count travel-route))
+      (if (true? (get-in @a-rover [:is-meet-obstacle]))
+        (print "Rover meet obstacle, stop!")
+        (do 
+             (move! (nth travel-route i) planet obstacles)
+             (println "Rover go to" (get-in @a-rover [:position]))
+             (recur (inc i))
+        )))))
+
+(rover-travel! travel-route planet obstacles)
