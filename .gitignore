@@ -9,7 +9,7 @@
 /*/.lein-repl-history
 
 /.clj-kondo/.cache
-/.lsp
-/.calva
+/*/.lsp
+/*/.calva
 
 profiles.clj
