@@ -33,7 +33,6 @@
         planet-w (:width planet)
         planet-h (:height planet)]
     (or (neg? x) (neg? y) (> x planet-w) (> y planet-h))))
-(rover-hit-planet-edge? initial-rover planet)
 
 (defn rover-hit-obstacle? [rover obstacles]
   (boolean (some (partial = (:position rover)) obstacles)))
@@ -46,6 +45,22 @@
       (rover-hit-planet-edge? rover planet) {:status :planet-edge :rover rover}
       :else  {:status :ok :rover next-rover})))
 
+
+(defn parse-planet-from-str [str] ()
+  (let [[_ width height] (re-matches #"([0-9]+)x([0-9]+)" str)]
+    (if (nil? _) nil {:width width :height height})))
+
+(defn parse-obstacles-from-str [str]
+  (let [obstacles (re-seq #"([0-9]+),([0-9]+)" str)]
+    (if (> (count obstacles) 0)
+      (map #(let [[_ x y] %] {:x x :y y}) obstacles)
+      nil
+      )))
+
+;; 1,3:W
+;; (defn parse-rover-initial-state-from-str [str]
+;;   (let [[_ rover-coord] (re-matches #"([0-9]+),([0-9]+)" str)]
+;;     (if (nil? _) nil {:width width :height height})))
 
 ;; (defn rover-travel! [travel-route planet obstacles]
 ;;   (loop [i 0]
