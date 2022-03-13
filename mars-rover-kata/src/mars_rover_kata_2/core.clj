@@ -1,9 +1,10 @@
-((ns mars-rover-kata-2.core
-  (:gen-class))
+(ns mars-rover-kata-2.core
+  (:require [clojure.java.io :as io]
+            [clojure.edn :as edn]))
 
-(def planet-data (slurp "planet.txt"))
-(def obstacles-data (slurp "obstacles.txt"))
-(def rover-data (slurp "rover.txt"))
+(defn load-data [filename]
+  (with-open [r (io/reader filename)]
+    (edn/read (java.io.PushbackReader. r))))
 
 (def ->right {:north :east, :east :south, :south :west, :west :north})
 (def ->left {:north :west, :west :south, :south :east, :east :north})
@@ -36,7 +37,8 @@
         y (get-in rover [:position :y])
         planet-w (:width planet)
         planet-h (:height planet)]
-    (or (neg? x) (neg? y) (> x planet-w) (> y planet-h))))
+    (or (neg? x) (neg? y)
+        (> x planet-w) (> y planet-h))))
 
 (defn rover-hit-obstacle? [rover obstacles]
   (boolean (some (partial = (:position rover)) obstacles)))
@@ -46,30 +48,8 @@
         next-rover (cmd-fn rover)]
     (cond
       (rover-hit-obstacle? next-rover obstacles) {:status :obstacle :rover rover}
-      (rover-hit-planet-edge? rover planet) {:status :planet-edge :rover rover}
-      :else  {:status :ok :rover next-rover})))
-
-
-(defn parse-planet-from-str [str] ()
-  (let [[_ width height] (re-matches #"([0-9]+)x([0-9]+)" str)]
-    (if (nil? _) nil {:width (Integer/parseInt width) :height (Integer/parseInt height)})))
-
-(defn parse-obstacles-from-str [str]
-  (let [obstacles (re-seq #"([0-9]+),([0-9]+)" str)]
-    (if (> (count obstacles) 0)
-      (map #(let [[_ x y] %] {:x (Integer/parseInt x) :y (Integer/parseInt y)}) obstacles)
-      nil
-      )))
-
-(defn parse-rover-from-str [str]
-  (let [[_ x y orientation] (re-matches #"([0-9]+),([0-9]+):(W|S|E|N)" str)]
-    (if (nil? _) nil {:position {:x (Integer/parseInt x) :y (Integer/parseInt y)}
-                      :orientation (condp = orientation
-                                        "N" :north
-                                        "W" :west
-                                        "S" :south
-                                        "E" :east
-                                        nil)})))
+      (rover-hit-planet-edge? rover planet)      {:status :planet-edge :rover rover}
+      :else                                      {:status :ok :rover next-rover})))
 
 (defn travel [rover commands obstacles planet]
   (loop [r rover
@@ -80,30 +60,26 @@
         (recur (:rover move-result) other-cmds (conj result move-result)))
       result)))
 
-(def cmds
-  [:move-forward
-   :move-forward
-   :move-forward
-   :turn-right
-   :move-forward
-   :move-forward
-   :move-forward
-   :move-backward])
-
 (defn main []
-  (let [
-        initial-rover (parse-rover-from-str rover-data)
-        obstacles (parse-obstacles-from-str obstacles-data)
-        planet (parse-planet-from-str planet-data)
-        statuses (travel initial-rover cmds obstacles planet)]
-    (doseq [s statuses]
+  (let [rover     (load-data "resources/rover.edn")
+        obstacles (load-data "resources/obstacles.edn")
+        planet    (load-data "resources/planet.edn")
+        commands  [:move-forward
+                   :move-forward
+                   :move-forward
+                   :turn-right
+                   :move-forward
+                   :move-forward
+                   :move-forward
+                   :move-backward]
+        progress   (travel rover commands obstacles planet)]
+    (doseq [s progress]
       (let [msg (condp = (:status s)
-                  :obstacle "Rover met obstacle, stop!"
+                  :obstacle    "Rover met obstacle, stop!"
                   :planet-edge "Rover is on planet edge, stop!"
-                  :ok (str "Rover go to " (-> s :rover :position)))]
+                  :ok          (str "Rover go to " (-> s :rover :position)))]
         (println msg)))))
 
 (comment
   (main)
   )
-)
