@@ -25,22 +25,27 @@
   (assoc lift :doors-open false))
 
 (defn call-lift [lift floor]
-  (assoc lift :floor-queue (cons floor (:floor-queue lift))))
+  (-> lift (assoc :floor-queue (cons floor (:floor-queue lift)))))
 
 (defn choose-floor [lift floor]
-  (-> lift close-door (call-lift floor)))
+  (-> lift (call-lift floor) close-door))
 
 (defn move-lift [lift] (let [fq (get lift :floor-queue)]
-                         (if-not (empty? fq)
-                           (assoc lift :floor-queue (rest fq))
+                         (if-not (empty? fq) 
+                           (-> lift
+                               close-door
+                               (assoc :cur-floor (first fq) :floor-queue (rest fq))
+                               open-door)
                            lift)))
+
+(defn command-panel [lift] (do (print {:cur-floor 1
+                                       :buttons [{:floor 1 :active true}
+                                                 {:floor 1 :active false}
+                                                 {:floor 1 :active true}]})) lift)
 
 (-> initial-lift
     (call-lift 3)
-    (call-lift 8)
-    (call-lift 1)
     (move-lift)
-    (call-lift 5)
-    (move-lift)
-)
+    (choose-floor 2)
+    )
 
